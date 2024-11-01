@@ -27,6 +27,7 @@ export function Login() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                mode: 'no-cors', // Add this line
                 body: JSON.stringify({ email, password }),
             });
 
