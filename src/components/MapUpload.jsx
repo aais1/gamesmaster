@@ -56,7 +56,7 @@ const MapUpload = ({ gridSettings }) => {
             >
                 {!image && (
                     <>
-                        <label htmlFor="mapUpload" className="text-[31px] font-semibold mb-5">
+                        <label htmlFor="mapUpload" className="text-[25px] md:text-[31px] font-semibold mb-5">
                             UPLOAD YOUR MAP
                         </label>
                         <input
@@ -73,7 +73,7 @@ const MapUpload = ({ gridSettings }) => {
                         >
                             Select your Images
                         </button>
-                        <p className="text-gray-400 text-[16.8px]">or drop image here</p>
+                        <p className="text-white font-[400] text-[16.8px]">or drop image here</p>
                     </>
                 )}
 
