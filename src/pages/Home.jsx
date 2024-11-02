@@ -25,7 +25,7 @@ export function Home() {
                     <div className="py-8 md:py-0 border-t md:border-none border-b w-full">
                         <MapUpload gridSettings={gridSettings} />
                     </div>
-                    <div className="flex flex-col md:space-y-2 md:pl-8 md:border-l border-white">
+                    <div className="flex flex-col w-full md:max-w-[25vw] md:space-y-2 md:pl-8 md:border-l border-white">
                         <SettingsPanel gridSettings={gridSettings} setGridSettings={setGridSettings} />
                         <div className="md:block hidden">
                             <PromoSection />

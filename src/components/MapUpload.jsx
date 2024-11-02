@@ -49,14 +49,14 @@ const MapUpload = ({ gridSettings }) => {
         <div className="flex flex-col md:w-full w-[90vw] mx-auto">
             <div 
                 ref={containerRef}
-                className="flex flex-col min-h-[81vh] items-center justify-center border-red-900 border-[2px] bg-gray-800 rounded-lg p-8 relative"
+                className="flex flex-col min-h-[81vh] items-center justify-center border-[#500b0b] border-[3px] bg-[#1e2122] rounded-xl p-8 relative"
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
             >
                 {!image && (
                     <>
-                        <label htmlFor="mapUpload" className="text-3xl font-semibold mb-5">
+                        <label htmlFor="mapUpload" className="text-[31px] font-semibold mb-5">
                             UPLOAD YOUR MAP
                         </label>
                         <input
@@ -69,11 +69,11 @@ const MapUpload = ({ gridSettings }) => {
                         />
                         <button
                             onClick={handleFileInputClick}
-                            className="bg-[#df0000] text-white py-2 px-10 text-xl font-semibold rounded-2xl mb-2"
+                            className="bg-[#df0000] text-white py-2 px-10 text-[20.8px] font-semibold rounded-2xl mb-2"
                         >
                             Select your Images
                         </button>
-                        <p className="text-gray-400">or drop image here</p>
+                        <p className="text-gray-400 text-[16.8px]">or drop image here</p>
                     </>
                 )}
 

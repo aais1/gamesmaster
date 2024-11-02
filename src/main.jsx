@@ -12,7 +12,6 @@ import { Protected } from './components/Protected';
 import { ToastContainer } from 'react-toastify';
 import UserContext from './context/UserContext';
 import { ImageContextProvider } from './context/ImageContext';
-
 const router=createBrowserRouter(
   createRoutesFromElements(
     <>

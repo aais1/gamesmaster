@@ -78,10 +78,10 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
     };
 
     return (
-        <div className="flex flex-col space-y-2 py-8 md:py-0 md:w-full w-[90vw] mx-auto">
-            <div className="bg-gray-800 text-black border-red-900 border-[2px] rounded-lg text-center p-2">
-                <h3 className="text-2xl font-semibold mb-4 text-white text-center">SETTINGS</h3>
-                <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col space-y-2 py-8 md:py-0 md:w-full w-[90vw] mx-auto  md:mx-auto">
+            <div className="bg-[#1e2122] text-black border-[#500b0b] border-[3px] rounded-lg text-center p-2">
+                <h3 className="text-[20.3px] font-semibold mb-4 text-white text-center">SETTINGS</h3>
+                <div className="flex px-8 items-center justify-between mb-4 text-[15.7px]">
                     <label className="text-white">Grid Type</label>
                     <select
                         name="gridType"
@@ -90,10 +90,9 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         className="bg-white rounded-lg text-center p-1"
                     >
                         <option value="square">Square</option>
-                        <option value="hexagonal">Hexagonal</option>
                     </select>
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Color</label>
                     <input
                         name="color"
@@ -103,7 +102,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         className="h-7 w-[80px]"
                     />
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Opacity</label>
                     <input
                         name="opacity"
@@ -115,7 +114,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Rows</label>
                     <input
                         name="rows"
@@ -126,7 +125,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         className="w-16 bg-white rounded-lg text-center p-1"
                     />
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Columns</label>
                     <input
                         name="columns"
@@ -137,7 +136,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         className="w-16 bg-white rounded-lg text-center p-1"
                     />
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Thickness</label>
                     <input
                         name="thickness"
@@ -150,11 +149,11 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                 </div>
             </div>
 
-            <div className="bg-gray-800 border-red-900 border-[2px] rounded-lg p-4">
-                <h3 className="text-lg font-semibold mb-4 text-white text-center">CREATE & DOWNLOAD</h3>
+            <div className="bg-[#1e2122] border-[#500b0b] border-[3px] rounded-lg p-4">
+                <h3 className="text-[18.4px] font-semibold mb-4 text-white text-center">CREATE & DOWNLOAD</h3>
                 <button
                     onClick={handleDownload}
-                    className="w-full bg-[#df0000] text-white py-3 px-4 rounded-full text-center"
+                    className="w-full bg-[#df0000] text-white py-2 px-4 text-[13.4px] rounded-full text-center"
                 >
                     DOWNLOAD MAP →
                 </button>

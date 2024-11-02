@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast notifications
+import 'react-toastify/dist/ReactToastify.css';
 import bg1 from "../assets/bg1.png";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from '../context/UserContext'; // Adjust the import path
+import { useUserContext } from '../context/UserContext';
 
 export function Login() {
-    const { setUser } = useUserContext(); // Get setUser from context
+    const { setUser } = useUserContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +27,6 @@ export function Login() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                mode: 'no-cors', // Add this line
                 body: JSON.stringify({ email, password }),
             });
 
@@ -41,13 +40,11 @@ export function Login() {
                 throw new Error(data.error);
             }
 
-            console.log(data)
-            localStorage.setItem('user', JSON.stringify(data.user)); // Save user to local storage
-            setUser(data.user); // Set user in context
+            localStorage.setItem('user', JSON.stringify(data.user));
+            setUser(data.user);
             navigate('/');
         } catch (err) {
             toast.error(err.message || "An error occurred. Please try again.");
-            console.log(err)
         } finally {
             setLoading(false);
         }
@@ -75,7 +72,7 @@ export function Login() {
               placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 mb-4 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 mb-4 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-green-500" // Change here
             />
   
             <label className="sr-only" htmlFor="password">Password</label>
@@ -86,7 +83,7 @@ export function Login() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-3 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-green-500" // Change here
               />
               <button
                 type="button"
@@ -134,7 +131,7 @@ export function Login() {
   
             <button
               type="submit"
-              disabled={loading} // Disable button while loading
+              disabled={loading}
               className={`flex items-center justify-center w-full py-3 bg-green-600 text-white rounded-md hover:bg-green-500 transition duration-200 active:scale-95 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               {loading && (
