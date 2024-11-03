@@ -72,7 +72,7 @@ export function Login() {
               placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 mb-4 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-green-500" // Change here
+              className="w-full p-3 mb-4 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-[#df0000]" // Change here
             />
   
             <label className="sr-only" htmlFor="password">Password</label>
@@ -83,7 +83,7 @@ export function Login() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-3 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-green-500" // Change here
+                className="w-full p-3 rounded-md border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-[#df0000]" // Change here
               />
               <button
                 type="button"
@@ -132,7 +132,7 @@ export function Login() {
             <button
               type="submit"
               disabled={loading}
-              className={`flex items-center justify-center w-full py-3 bg-green-600 text-white rounded-md hover:bg-green-500 transition duration-200 active:scale-95 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`flex items-center justify-center w-full py-3 bg-[#df0000] text-white rounded-md hover:bg-[#c71b1b] transition duration-200 active:scale-95 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               {loading && (
                 <svg
@@ -149,7 +149,10 @@ export function Login() {
               {loading ? 'Loading...' : 'Continue'}
             </button>
           </form>
+          <div className="flex justify-end w-full">
+          <a href="#" className="text-[#df0000] hover:underline text-right text-sm block mt-4"  target="_blank">Forgot Password?</a>
         </div>
+          </div>
       </div>
     );
 }

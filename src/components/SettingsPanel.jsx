@@ -90,6 +90,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         className="bg-white rounded-lg text-center p-1"
                     >
                         <option value="square">Square</option>
+                        <option value="hexagonal">Hexagonal</option>
                     </select>
                 </div>
                 <div className="flex items-center px-8 justify-between mb-4">
@@ -99,8 +100,9 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                         type="color"
                         value={gridSettings.color}
                         onChange={handleChange}
-                        className="h-7 w-[80px]"
+                        className="h-7 w-16 rounded-lg border-0 cursor-pointer"
                     />
+
                 </div>
                 <div className="flex items-center px-8 justify-between mb-4">
                     <label className="text-white">Opacity</label>

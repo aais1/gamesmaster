@@ -71,7 +71,7 @@ const MapUpload = ({ gridSettings }) => {
                             onClick={handleFileInputClick}
                             className="bg-[#df0000] text-white py-2 px-10 text-[20.8px] font-semibold rounded-2xl mb-2"
                         >
-                            Select your Images
+                            Select your Image
                         </button>
                         <p className="text-white font-[400] text-[16.8px]">or drop image here</p>
                     </>
