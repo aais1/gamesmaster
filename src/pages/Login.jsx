@@ -58,12 +58,7 @@ export function Login() {
 
     return (
         <div
-          style={{
-            backgroundImage: `url(${bg1})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          className="flex items-center justify-center min-h-screen bg-gray-900"
+          className="flex bg-[#0c0c0c] items-center justify-center min-h-screen"
         >
             {!showLoginForm ? (
                 // Video component
