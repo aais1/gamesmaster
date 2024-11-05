@@ -1,6 +1,6 @@
 const PromoSection = () => {
   return (
-    <div className="md:rounded-lg pt-12 md:p-4 p-6 text-center flex flex-col">
+    <div className="md:rounded-lg pt-12 md:p-4 p-6 text-center border-opacity-[30%] flex flex-col">
       <h3 className="text-[12.2pt] md:text-[10pt]">Want to add characters to your maps?</h3>
       <div className=" mt-2 flex space-x-4 md:space-x-2">
         <div className="bg-black rounded-2xl  w-[50%] border border-white">

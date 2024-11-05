@@ -49,7 +49,7 @@ const MapUpload = ({ gridSettings }) => {
         <div className="flex flex-col md:w-full w-[90vw] mx-auto">
             <div 
                 ref={containerRef}
-                className="flex flex-col min-h-[81vh] items-center justify-center border-[#500b0b] border-[3px] bg-[#1e2122] rounded-xl p-8 relative"
+                className="flex flex-col min-h-[81vh] items-center justify-center border-opacity-[30%] border-[#500b0b] border-[3px] bg-[#1e2122] rounded-xl p-8 relative"
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}

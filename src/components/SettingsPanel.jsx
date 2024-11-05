@@ -79,7 +79,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
 
     return (
         <div className="flex flex-col space-y-2 py-8 md:py-0 md:w-full w-[90vw] mx-auto  md:mx-auto">
-            <div className="bg-[#1e2122] text-black border-[#500b0b] border-[3px] rounded-lg text-center p-2">
+            <div className="bg-[#1e2122] text-black border-[#500b0b] border-opacity-[30%] border-[3px] rounded-lg text-center p-2">
                 <h3 className="text-[20.3px] font-semibold mb-4 text-white text-center">SETTINGS</h3>
                 <div className="flex px-8 items-center justify-between mb-4 text-[15.7px]">
                     <label className="text-white">Grid Type</label>
@@ -151,7 +151,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
                 </div>
             </div>
 
-            <div className="bg-[#1e2122] border-[#500b0b] border-[3px] rounded-lg p-4">
+            <div className="bg-[#1e2122] border-[#500b0b] border-opacity-[30%]  border-[3px] rounded-lg p-4">
                 <h3 className="text-[18.4px] font-semibold mb-4 text-white text-center">CREATE & DOWNLOAD</h3>
                 <button
                     onClick={handleDownload}
