@@ -34,13 +34,14 @@ export function Login() {
                 },
                 body: JSON.stringify({ email, password }),
             });
+            
+            const data = await resp.json();
 
             if (resp.status === 401) {
-                navigate('/login');
+                toast.error(data.message || "Invalid credentials. Please try again.");
                 return;
             }
 
-            const data = await resp.json();
             if (data.error) {
                 throw new Error(data.error);
             }
