@@ -1,25 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const GridOverlay = ({ gridSettings }) => {
-    const { gridType, thickness, color, opacity } = gridSettings;
-    const [hexSize, setHexSize] = useState(50); // Increased initial hex size for better visibility
-
-    useEffect(() => {
-        const calculateHexSize = () => {
-            const containerWidth = window.innerWidth * 0.7;
-            const containerHeight = window.innerHeight * 0.8;
-
-            // Calculate hex size based on container dimensions for a more balanced look
-            const calculatedHexWidth = containerWidth / 8; // Adjust '8' for fewer hexagons horizontally
-            const calculatedHexHeight = containerHeight / 7; // Adjust '7' for fewer hexagons vertically
-
-            setHexSize(Math.min(calculatedHexWidth / 2, calculatedHexHeight / Math.sqrt(3)));
-        };
-
-        calculateHexSize();
-        window.addEventListener('resize', calculateHexSize);
-        return () => window.removeEventListener('resize', calculateHexSize);
-    }, []);
+    const { gridType, thickness, color, opacity, rows, columns } = gridSettings;
+    const hexSize = 30; // Fixed hex size
 
     const style = {
         position: 'absolute',
@@ -42,18 +25,17 @@ const GridOverlay = ({ gridSettings }) => {
         }).join(' ');
     };
 
-    // Render hexagonal grid across the entire area
+    // Render hexagonal grid across the area using fixed rows and columns
     const renderHexagonalGrid = () => {
         const hexWidth = hexSize * 2;
         const hexHeight = Math.sqrt(3) * hexSize;
         const hexagons = [];
-        const containerWidth = window.innerWidth * 0.7;
-        const containerHeight = window.innerHeight * 0.8;
 
-        for (let y = 0; y < containerHeight + hexHeight; y += hexHeight) {
-            for (let x = 0; x < containerWidth + hexWidth; x += hexWidth * 2) {
-                const cx = x;
-                const cy = y + (x / hexWidth % 2 ? hexHeight / 2 : 0);
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < columns; col++) {
+                // Calculate the center position of each hexagon
+                const cx = col * hexWidth * 0.75;
+                const cy = row * hexHeight + (col % 2 === 0 ? 0 : hexHeight / 2);
 
                 hexagons.push(
                     <polygon
@@ -70,10 +52,8 @@ const GridOverlay = ({ gridSettings }) => {
         return hexagons;
     };
 
-    // Render square grid across the entire area
+    // Render square grid across the area
     const renderSquareGrid = () => {
-        const columns = 8; // Adjust for desired density
-        const rows = 7;
         const cellWidth = 100 / columns + '%';
         const cellHeight = 100 / rows + '%';
 
