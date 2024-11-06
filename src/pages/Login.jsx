@@ -128,8 +128,9 @@ export function Login() {
                       {loading ? 'Loading...' : 'Continue'}
                     </button>
                   </form>
-                  <div className="flex justify-end w-full">
+                  <div className="flex flex-col items-center  justify-center w-full">
                     <a href="#" className="text-[#df0000] hover:underline text-right text-sm block mt-4" target="_blank">Forgot Password?</a>
+                    <span className="text-[#ffff] text-right text-sm block mt-4" target="_blank">Don&apos;t have an account ? <a href="#" className="underline">Signup</a></span>
                   </div>
                 </div>
             )}
