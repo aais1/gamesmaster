@@ -18,56 +18,68 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
     
+        // Load the base image
         const img = new Image();
-        img.src = image; 
+        img.src = image;
         img.onload = () => {
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
     
-            // Create the SVG string for the grid
+            // Create the SVG string for the grid, scaling to cover the entire canvas
             const svgString = ReactDOMServer.renderToStaticMarkup(
                 <svg xmlns="http://www.w3.org/2000/svg" width={canvas.width} height={canvas.height}>
                     <rect width="100%" height="100%" fill="none" />
-                    <GridOverlay gridSettings={gridSettings} />
+                    <GridOverlay gridSettings={{ ...gridSettings, rows: 30, columns: 30 }} /> 
+                    {/* Adjusted rows and columns to ensure the grid covers the entire canvas */}
                 </svg>
             );
     
-            // Render grid from SVG on canvas
+            // Parse the SVG string and draw elements on the canvas
             const parser = new DOMParser();
             const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
             const paths = svgDoc.querySelectorAll('rect, polygon');
     
             paths.forEach((path) => {
-                const strokeWidth = parseFloat(path.getAttribute('stroke-width'));
-                ctx.strokeStyle = path.getAttribute('stroke');
-                ctx.lineWidth = strokeWidth*1.2; // Ensure thickness matches directly
+                const strokeWidth = parseFloat(path.getAttribute('stroke-width')) || gridSettings.thickness;
+                ctx.strokeStyle = path.getAttribute('stroke') || gridSettings.color;
+                ctx.lineWidth = strokeWidth;
     
                 if (path.tagName === 'rect') {
-                    const x = parseFloat(path.getAttribute('x')) * (canvas.width / 100);
-                    const y = parseFloat(path.getAttribute('y')) * (canvas.height / 100);
-                    const width = parseFloat(path.getAttribute('width')) * (canvas.width / 100);
-                    const height = parseFloat(path.getAttribute('height')) * (canvas.height / 100);
+                    // Get the rectangle dimensions, scaled to the canvas size
+                    const x = (parseFloat(path.getAttribute('x')) || 0) * (canvas.width / 100);
+                    const y = (parseFloat(path.getAttribute('y')) || 0) * (canvas.height / 100);
+                    const width = (parseFloat(path.getAttribute('width')) || 100) * (canvas.width / 100);
+                    const height = (parseFloat(path.getAttribute('height')) || 100) * (canvas.height / 100);
                     ctx.strokeRect(x, y, width, height);
                 } else if (path.tagName === 'polygon') {
+                    // For hexagonal grid or other polygon shapes, calculate each point precisely
                     const points = path.getAttribute('points').split(' ').map(p => p.split(',').map(Number));
                     ctx.beginPath();
-                    ctx.moveTo(points[0][0] * (canvas.width / 100), points[0][1] * (canvas.height / 100));
-                    points.forEach(point => {
-                        ctx.lineTo(point[0] * (canvas.width / 100), point[1] * (canvas.height / 100));
+                    const [firstPoint, ...otherPoints] = points;
+                    ctx.moveTo(firstPoint[0], firstPoint[1]);
+                    otherPoints.forEach(([px, py]) => {
+                        ctx.lineTo(px, py);
                     });
                     ctx.closePath();
                     ctx.stroke();
                 }
             });
     
+            // Initiate the download
             const link = document.createElement('a');
             link.download = 'map-with-grid.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         };
+    
+        img.onerror = () => {
+            console.error("Error loading the base image.");
+            alert("Failed to load the base image. Please check the image source.");
+        };
     };
     
+
 
     const handleDownload = () => {
         if (image) {

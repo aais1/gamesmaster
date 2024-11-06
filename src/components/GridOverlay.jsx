@@ -31,8 +31,8 @@ const GridOverlay = ({ gridSettings }) => {
         const hexHeight = Math.sqrt(3) * hexSize;
         const hexagons = [];
 
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < columns; col++) {
+        for (let row = 0; row <25; row++) {
+            for (let col = 0; col < 35; col++) {
                 // Calculate the center position of each hexagon
                 const cx = col * hexWidth * 0.75;
                 const cy = row * hexHeight + (col % 2 === 0 ? 0 : hexHeight / 2);
