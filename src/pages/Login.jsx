@@ -125,12 +125,12 @@ export function Login() {
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
                         </svg>
                       )}
-                      {loading ? 'Loading...' : 'Continue'}
+                      {loading ? 'Loading...' : 'Login'}
                     </button>
                   </form>
                   <div className="flex flex-col items-center  justify-center w-full">
-                    <a href="#" className="text-[#df0000] hover:underline text-right text-sm block mt-4" target="_blank">Forgot Password?</a>
-                    <span className="text-[#ffff] text-right text-sm block mt-4" target="_blank">Don&apos;t have an account ? <a href="#" className="underline">Signup</a></span>
+                    <a href="https://thegamesmaster.com/pages/contact_us" className="text-[#df0000] hover:underline text-right text-sm block mt-4" target="_blank">Forgot Password?</a>
+                    <span className="text-[#ffff] text-right text-sm block mt-4" target="_blank">Don&apos;t have an account ? <a href="https://thegamesmaster.com" className="underline">Signup</a></span>
                   </div>
                 </div>
             )}

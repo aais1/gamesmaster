@@ -13,7 +13,9 @@ const PromoSection = () => {
             intriguing.
           </p>
           <button className="bg-[#df0000] text-white px-2 py-1 rounded-sm text-[11.6px] md:text-[8.3px]">
+            <a href="https://thegamesmaster.com/products/upsell-1?_ab=0&key=1730910184896">
             GET NOW
+            </a>
           </button>
         </div>
       </div>
