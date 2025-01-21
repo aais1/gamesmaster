@@ -25,7 +25,6 @@ const router=createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-
       <UserContext>
         <ImageContextProvider>
           <RouterProvider router={router}/>
