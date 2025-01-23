@@ -30,7 +30,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
             const svgString = ReactDOMServer.renderToStaticMarkup(
                 <svg xmlns="http://www.w3.org/2000/svg" width={canvas.width} height={canvas.height}>
                     <rect width="100%" height="100%" fill="none" />
-                    <GridOverlay gridSettings={{ ...gridSettings, rows: 30, columns: 30 }} /> 
+                    <GridOverlay gridSettings={{ ...gridSettings }} /> 
                     {/* Adjusted rows and columns to ensure the grid covers the entire canvas */}
                 </svg>
             );
@@ -43,7 +43,7 @@ const SettingsPanel = ({ gridSettings, setGridSettings }) => {
             paths.forEach((path) => {
                 const strokeWidth = parseFloat(path.getAttribute('stroke-width')) || gridSettings.thickness;
                 ctx.strokeStyle = path.getAttribute('stroke') || gridSettings.color;
-                ctx.lineWidth = strokeWidth;
+                ctx.lineWidth = strokeWidth*2.25;
     
                 if (path.tagName === 'rect') {
                     // Get the rectangle dimensions, scaled to the canvas size
